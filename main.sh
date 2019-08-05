@@ -12,6 +12,6 @@ export IFS=$'\n\t ,.';
 
 while read line; do
     for word in $line; do
-       echo "${word:0:1}$(( ${#word} - 2 ))${word: -1}" 
+        ((${#word} > 2)) && echo "${word:0:1}$(( ${#word} - 2 ))${word: -1}" || echo ${word}
     done
 done | tr '\n' ' '
